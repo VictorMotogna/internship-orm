@@ -1,0 +1,35 @@
+default: &default
+  adapter: postgresql
+  pool: '<%= ENV["DATABASE_POOL"] || ENV["RAILS_MAX_THREADS"] || 5 %>'
+  encoding: unicode
+
+container: &container
+  <<: *default
+  database: '<%= ENV["DATABASE_NAME"] %>'
+  username: '<%= ENV["DATABASE_USER"] %>'
+  password: '<%= ENV["DATABASE_PASSWORD"] %>'
+  host: '<%= ENV["DATABASE_HOST"] %>'
+  port: '<%= ENV["DATABASE_PORT"] %>'
+  sslmode: <%= ENV['DATABASE_SSLMODE'] || 'require' %>
+
+development:
+  <<: *default
+  database: internship_orm_development
+  min_messages: WARNING
+
+test:
+  <<: *default
+  database: internship_orm_test
+  min_messages: WARNING
+
+dev:
+  <<: *container
+
+staging:
+  <<: *container
+
+pre_production:
+  <<: *container
+
+production:
+  <<: *container
