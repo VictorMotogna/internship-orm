@@ -3,10 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
-gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
+gem 'bootsnap', '>= 1.4.4', require: false
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
-gem 'bootsnap', '>= 1.4.4', require: false
+gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
 
 # Docs
 gem 'apipie-rails', '~> 0.5.18'
@@ -21,6 +21,7 @@ gem 'doorkeeper', '~> 5.5', '>= 5.5.1'
 
 # Misc
 gem 'rack-cors', '~> 1.1', '>= 1.1.1'
+gem 'faker', '~> 2.17'
 
 group :development do
   gem 'listen', '~> 3.3'
